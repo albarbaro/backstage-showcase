@@ -22,6 +22,7 @@ metadata:
     backstage.io/techdocs-ref: url:https://github.com/janus-idp/backstage-showcase
     backstage.io/kubernetes-namespace: janus-idp-prod
     sonarqube.org/project-key: janus-idp_backstage-showcase
+    nexus-repository-manager/docker.image-name: janus-idp/backstage-showcase
 spec:
   type: website
   system: janus-idp
