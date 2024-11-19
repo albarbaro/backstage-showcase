@@ -44,7 +44,7 @@ test.describe("Standard authentication providers: Basic authentication", () => {
       constants.QUAY_REPO,
       constants.TAG_NAME,
       [
-        "--set upstream.backstage.appConfig.auth.providers=null",
+        "--set upstream.backstage.appConfig.auth.providers.guest.dangerouslyAllowOutsideDevelopment=false",
         "--set upstream.backstage.appConfig.auth.environment=development",
         "--set upstream.backstage.appConfig.catalog.providers=null",
       ],
