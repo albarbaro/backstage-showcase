@@ -11,6 +11,7 @@ import { APIHelper } from "./APIHelper";
 export const k8sClient = new kubeCLient();
 
 export async function runShellCmd(command: string) {
+  console.log(command);
   return new Promise<string>((resolve) => {
     //logger.info(`Executing command ${command}`);
     const process = spawn("/bin/sh", ["-c", command]);
