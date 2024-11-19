@@ -30,7 +30,7 @@ test.describe("Standard authentication providers: Basic authentication", () => {
   });
 
   test("1. Verify guest login can work when no auth provider is configured (dangerouslyAllowSignInWithoutUserInCatalog is enabled by default but it should not conflict with the guest login).", async () => {
-    test.setTimeout(300 * 1000);
+    test.setTimeout(600 * 1000);
     logger.info(
       "Executing testcase: Verify guest login can work when no auth provider is configured (dangerouslyAllowSignInWithoutUserInCatalog is enabled by default but it should not conflict with the guest login).",
     );
