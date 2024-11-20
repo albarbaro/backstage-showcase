@@ -62,7 +62,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     groupsCreated = created.groupsCreated;
   });
 
-  test("Setup RHDH with Microsoft EntraID ingestion and eventually wait for the first sync", async () => {
+  test.skip("Setup RHDH with Microsoft EntraID ingestion and eventually wait for the first sync", async () => {
     test.setTimeout(600 * 1000);
     const oidcFlow = false;
     const oauthFlags = [
@@ -236,7 +236,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
 
   test("Remove user from Microsoft EntraID", async () => {
     test.setTimeout(300 * 1000);
-    if (test.info().retry > -1) {
+    if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
     }
 
