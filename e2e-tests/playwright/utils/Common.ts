@@ -268,7 +268,9 @@ export class Common {
 
   async MicrosoftAzureLogin(username: string, password: string) {
     await this.page.goto("/");
-    await this.page.waitForSelector('p:has-text("Sign in using Microsoft")');
+    await this.page.waitForSelector('p:has-text("Sign in using Microsoft")', {
+      timeout: 25000,
+    });
     await this.uiHelper.clickButton("Sign In");
 
     return await new Promise<string>((resolve) => {
@@ -279,22 +281,29 @@ export class Common {
           resolve("Already logged in");
         } else {
           try {
+            await this.page.waitForSelector("[name=loginfmt]", {
+              timeout: 25000,
+            });
             await popup
               .locator("[name=loginfmt]")
-              .fill(username, { timeout: 5000 });
+              .fill(username, { timeout: 25000 });
             await popup
               .locator('[type=submit]:has-text("Next")')
-              .click({ timeout: 5000 });
+              .click({ timeout: 25000 });
 
+            await this.page.waitForSelector("[name=passwd]", {
+              timeout: 25000,
+            });
             await popup
               .locator("[name=passwd]")
-              .fill(password, { timeout: 5000 });
+              .fill(password, { timeout: 25000 });
+
             await popup
               .locator('[type=submit]:has-text("Sign in")')
-              .click({ timeout: 5000 });
+              .click({ timeout: 25000 });
             await popup
               .locator('[type=button]:has-text("No")')
-              .click({ timeout: 15000 });
+              .click({ timeout: 25000 });
             resolve("Login successful");
           } catch (e) {
             const usernameError = popup.locator("id=usernameError");
