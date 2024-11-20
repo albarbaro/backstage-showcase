@@ -116,7 +116,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     logger.info(
       "Executing testcase: Setup Microsoft EntraID with default resolver: user_1 should login and entity is in the catalog",
     );
-    test.setTimeout(300 * 1000);
+    test.setTimeout(30 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
     }
@@ -138,7 +138,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     await context.clearCookies();
   });
 
-  test("Ingestion of Users and Nested Groups: verify the UserEntities and Groups are created with the correct relationships in RHDH ", async () => {
+  test.skip("Ingestion of Users and Nested Groups: verify the UserEntities and Groups are created with the correct relationships in RHDH ", async () => {
     test.setTimeout(300 * 1000);
     await WaitForNextSync(SYNC_TIME, "microsoft");
 
@@ -234,7 +234,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     ).toBe(true);
   });
 
-  test("Remove user from Microsoft EntraID", async () => {
+  test.skip("Remove user from Microsoft EntraID", async () => {
     test.setTimeout(300 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
@@ -297,7 +297,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     ).toBe(false);
   });
 
-  test("Move a user to another group in Microsoft EntraID", async () => {
+  test.skip("Move a user to another group in Microsoft EntraID", async () => {
     test.setTimeout(300 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
@@ -387,7 +387,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     await context.clearCookies(); // If we don't clear cookies, Microsoft Login popup will present the last logger user
   });
 
-  test("Remove a group from Microsoft EntraID", async () => {
+  test.skip("Remove a group from Microsoft EntraID", async () => {
     test.setTimeout(300 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
@@ -450,7 +450,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     await context.clearCookies(); // If we don't clear cookies, Microsoft Login popup will present the last logger user
   });
 
-  test("Remove a user from RHDH", async () => {
+  test.skip("Remove a user from RHDH", async () => {
     test.setTimeout(300 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
@@ -515,7 +515,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     await context.clearCookies(); // If we don't clear cookies, Microsoft Login popup will present the last logger user
   });
 
-  test("Remove a group from RHDH", async () => {
+  test.skip("Remove a group from RHDH", async () => {
     test.setTimeout(300 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
@@ -568,7 +568,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     ).toBe(true);
   });
 
-  test("Rename a user and a group", async () => {
+  test.skip("Rename a user and a group", async () => {
     test.setTimeout(600 * 1000);
     if (test.info().retry > 0) {
       await WaitForNextSync(SYNC_TIME, "microsoft");

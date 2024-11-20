@@ -281,19 +281,12 @@ export class Common {
           resolve("Already logged in");
         } else {
           try {
-            await popup.waitForSelector("[name=loginfmt]", {
-              timeout: 25000,
-            });
             await popup
               .locator("[name=loginfmt]")
               .fill(username, { timeout: 25000 });
             await popup
               .locator('[type=submit]:has-text("Next")')
               .click({ timeout: 25000 });
-
-            await popup.waitForSelector("[name=passwd]", {
-              timeout: 25000,
-            });
             await popup
               .locator("[name=passwd]")
               .fill(password, { timeout: 25000 });
