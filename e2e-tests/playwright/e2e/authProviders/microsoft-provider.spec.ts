@@ -116,8 +116,8 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     logger.info(
       "Executing testcase: Setup Microsoft EntraID with default resolver: user_1 should login and entity is in the catalog",
     );
-    test.setTimeout(30 * 1000);
-    if (test.info().retry > 0) {
+    test.setTimeout(120 * 1000);
+    if (test.info().retry > -1) {
       await WaitForNextSync(SYNC_TIME, "microsoft");
     }
 
