@@ -284,7 +284,9 @@ export class Common {
               .locator('[type=submit]:has-text("Next")')
               .click({ timeout: 5000 });
 
-            await popup.locator("[name=passwd]").fill(password);
+            await popup
+              .locator("[name=passwd]")
+              .fill(password, { timeout: 5000 });
             await popup
               .locator('[type=submit]:has-text("Sign in")')
               .click({ timeout: 5000 });
