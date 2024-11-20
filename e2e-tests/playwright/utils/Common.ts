@@ -281,7 +281,7 @@ export class Common {
           resolve("Already logged in");
         } else {
           try {
-            await this.page.waitForSelector("[name=loginfmt]", {
+            await popup.waitForSelector("[name=loginfmt]", {
               timeout: 25000,
             });
             await popup
@@ -291,7 +291,7 @@ export class Common {
               .locator('[type=submit]:has-text("Next")')
               .click({ timeout: 25000 });
 
-            await this.page.waitForSelector("[name=passwd]", {
+            await popup.waitForSelector("[name=passwd]", {
               timeout: 25000,
             });
             await popup
