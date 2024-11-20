@@ -211,8 +211,8 @@ export class Common {
         } else {
           await popup.waitForTimeout(3000);
           try {
-            await popup.locator("#username").fill(username);
-            await popup.locator("#password").fill(password);
+            await popup.locator("#username").fill(username, { timeout: 5000 });
+            await popup.locator("#password").fill(password, { timeout: 5000 });
             await popup.locator("[name=login]").click({ timeout: 5000 });
             await popup.waitForEvent("close", { timeout: 2000 });
             resolve("Login successful");
@@ -255,7 +255,7 @@ export class Common {
               "button.js-oauth-authorize-btn",
             );
             if (await authorization.isVisible()) {
-              authorization.click();
+              authorization.click({ timeout: 5000 });
               resolve("Login successful with app authorization");
             } else {
               throw e;
@@ -279,7 +279,9 @@ export class Common {
           resolve("Already logged in");
         } else {
           try {
-            await popup.locator("[name=loginfmt]").fill(username);
+            await popup
+              .locator("[name=loginfmt]")
+              .fill(username, { timeout: 5000 });
             await popup
               .locator('[type=submit]:has-text("Next")')
               .click({ timeout: 5000 });

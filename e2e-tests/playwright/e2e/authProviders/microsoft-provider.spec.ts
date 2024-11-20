@@ -62,7 +62,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     groupsCreated = created.groupsCreated;
   });
 
-  test.skip("Setup RHDH with Microsoft EntraID ingestion and eventually wait for the first sync", async () => {
+  test("Setup RHDH with Microsoft EntraID ingestion and eventually wait for the first sync", async () => {
     test.setTimeout(600 * 1000);
     const oidcFlow = false;
     const oauthFlags = [
@@ -109,7 +109,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     await WaitForNextSync(SYNC_TIME, "microsoft");
   });
 
-  test.skip("Microsoft EntraID with default resolver: user_1 should login and entity is in the catalog", async () => {
+  test("Microsoft EntraID with default resolver: user_1 should login and entity is in the catalog", async () => {
     // resolvers from upstream are not available in rhdh
     // testing only default settings
 
@@ -639,7 +639,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
         "Reloading page, permission should be updated automatically.",
       );
       await expect(page.locator(`nav a:has-text("My Group")`)).toBeVisible({
-        timeout: 2000,
+        timeout: 5000,
       });
     }).toPass({
       intervals: [5_000, 10_000],
