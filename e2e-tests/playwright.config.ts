@@ -77,8 +77,8 @@ export default defineConfig({
         "**/playwright/e2e/authProviders/clear-environment.spec.ts",
         "**/playwright/e2e/verify-tls-config-health-check.spec.ts",
       ],
-      //dependencies: ["showcase-auth-providers-setup-environment"],
-      //teardown: "showcase-auth-providers-clear-environment",
+      dependencies: ["showcase-auth-providers-setup-environment"],
+      teardown: "showcase-auth-providers-clear-environment",
       retries: 1,
     },
     {
