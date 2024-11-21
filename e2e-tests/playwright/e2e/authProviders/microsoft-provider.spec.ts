@@ -252,7 +252,7 @@ test.describe("Standard authentication providers: Micorsoft Azure EntraID", () =
     );
     expect(user).toBeNull();
 
-    await page.waitForTimeout(10000); // Azure needs a couple of seconds to process the user deletion or random errors will be returned
+    await page.waitForTimeout(20000); // Azure needs a couple of seconds to process the user deletion or random errors will be returned
 
     const login = await common.MicrosoftAzureLogin(
       constants.MSGRAPH_USERS["user_1"].userPrincipalName,
