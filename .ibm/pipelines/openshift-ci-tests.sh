@@ -44,6 +44,8 @@ source "${DIR}/jobs/operator.sh"
 echo "Loaded operator.sh"
 source "${DIR}/jobs/periodic.sh"
 echo "Loaded periodic.sh"
+source "${DIR}/jobs/auth-providers.sh"
+echo "Loaded periodic.sh"
 
 main() {
   echo "Log file: ${LOGFILE}"
@@ -53,6 +55,10 @@ main() {
     *aks*)
       echo "Calling handle_aks"
       handle_aks
+      ;;
+    *auth-providers*)
+      echo "Calling handle_auth_providers"
+      handle_auth_providers
       ;;
     *gke*)
       echo "Calling handle_gke"
