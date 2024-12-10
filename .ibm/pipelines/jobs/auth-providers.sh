@@ -1,6 +1,6 @@
 #!/bin/sh
 
-handle_nightly() {
+handle_auth_providers() {
 
   oc_login
 
