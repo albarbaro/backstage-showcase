@@ -9,7 +9,6 @@ handle_auth_providers() {
   ENCODED_CLUSTER_NAME=$(echo "my-cluster" | base64)
   export AUTH_PROVIDERS_RELEASE="rhdh-auth-providers"
   export AUTH_PROVIDERS_NAMESPACE="showcase-auth-providers"
-
   export K8S_CLUSTER_ROUTER_BASE=$(oc get route console -n openshift-console -o=jsonpath='{.spec.host}' | sed 's/^[^.]*\.//')
 
   add_helm_repos

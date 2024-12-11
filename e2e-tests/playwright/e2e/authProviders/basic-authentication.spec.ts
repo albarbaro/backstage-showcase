@@ -19,8 +19,8 @@ test.describe("Standard authentication providers: Basic authentication", () => {
     page = (await setupBrowser(browser, testInfo)).page;
     common = new Common(page);
     uiHelper = new UIhelper(page);
-    expect(process.env.BASE_URL).not.toBeNull();
-    LOGGER.info(`Base Url is ${process.env.BASE_URL}`);
+    expect(constants.AUTH_PROVIDERS_BASE_URL).not.toBeNull();
+    LOGGER.info(`Base Url is ${constants.AUTH_PROVIDERS_BASE_URL}`);
     LOGGER.info(
       `Starting scenario: Standard authentication providers: Basic authentication: attemp #${testInfo.retry}`,
     );

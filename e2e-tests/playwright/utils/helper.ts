@@ -217,7 +217,9 @@ export async function ensureEnvSecretExists(
   const kubeCLient = new KubeClient();
   LOGGER.info(`Ensuring secret ${secretName} exists in namespace ${namespace}`);
   const secretData = {
-    BASE_URL: Buffer.from(process.env.BASE_URL).toString("base64"),
+    BASE_URL: Buffer.from(
+      constants.AUTH_PROVIDERS_BASE_URL,
+    ).toString("base64"),
     AUTH_PROVIDERS_AZURE_CLIENT_SECRET: Buffer.from(
       constants.AUTH_PROVIDERS_AZURE_CLIENT_SECRET,
     ).toString("base64"),
