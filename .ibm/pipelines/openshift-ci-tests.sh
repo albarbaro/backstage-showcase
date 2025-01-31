@@ -56,7 +56,7 @@ main() {
       echo "Calling handle_aks"
       handle_aks
       ;;
-    *auth-providers*)
+    *e2e-tests-nightly-auth-providers)
       echo "Calling handle_auth_providers"
       handle_auth_providers
       ;;
